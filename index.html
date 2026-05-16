@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Gutschein</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Bungee+Shade&family=Fredoka+One&family=Orbitron:wght@400;900&family=Press+Start+2P&family=Russo+One&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Patrick+Hand&family=Pacifico&family=Quicksand:wght@400;600;700&family=Comfortaa:wght@700&display=swap');
         
         * {
             margin: 0;
@@ -17,760 +17,493 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            background: 
-                radial-gradient(circle at 20% 50%, rgba(255,0,255,0.6) 0%, transparent 50%),
-                radial-gradient(circle at 80% 50%, rgba(0,255,255,0.6) 0%, transparent 50%),
-                radial-gradient(circle at 50% 50%, rgba(255,255,0,0.4) 0%, transparent 50%),
-                linear-gradient(45deg, #ff006e, #8338ec, #3a86ff, #06ffa5, #ffbe0b, #fb5607);
-            background-size: 100% 100%, 100% 100%, 100% 100%, 500% 500%;
-            animation: ultraGradient 2.2s linear infinite;
-            font-family: 'Russo One', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            font-family: 'Quicksand', sans-serif;
             overflow: hidden;
         }
         
-        @keyframes ultraGradient {
-            0% { background-position: 0% 0%, 0% 0%, 0% 0%, 0% 50%; }
-            50% { background-position: 100% 100%, 100% 100%, 100% 100%, 100% 50%; }
-            100% { background-position: 0% 0%, 0% 0%, 0% 0%, 0% 50%; }
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
         
         .voucher {
             width: 297mm;
             height: 210mm;
-            background: 
-                repeating-linear-gradient(0deg, rgba(0,255,0,0.05) 0px, transparent 1px, transparent 2px, rgba(0,255,0,0.05) 3px),
-                repeating-linear-gradient(90deg, rgba(255,0,255,0.05) 0px, transparent 1px, transparent 2px, rgba(255,0,255,0.05) 3px),
-                linear-gradient(135deg, #0a0a1a 0%, #1a0a2e 50%, #0a1a3e 100%);
+            background: linear-gradient(145deg, #fff 0%, #f8f9fa 50%, #fff5f5 100%);
             border-radius: 30px;
-            border: 10px solid transparent;
             box-shadow: 
-                0 0 100px rgba(255,0,255,1),
-                0 0 200px rgba(0,255,255,0.8),
-                0 0 300px rgba(255,255,0,0.6),
-                inset 0 0 150px rgba(0,0,0,0.9);
+                0 25px 80px rgba(0, 0, 0, 0.15),
+                0 0 0 10px rgba(255, 255, 255, 0.5);
             position: relative;
-            overflow: visible;
+            overflow: hidden;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 15px;
-            animation: megaShake 0.33s ease-in-out infinite, borderGlow 1.1s ease-in-out infinite;
+            padding: 30px;
         }
         
-        @keyframes megaShake {
-            0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); }
-            10% { transform: translate(-3px, -3px) rotate(-1deg) scale(1.01); }
-            20% { transform: translate(3px, 3px) rotate(1deg) scale(0.99); }
-            30% { transform: translate(-3px, 3px) rotate(-1deg) scale(1.01); }
-            40% { transform: translate(3px, -3px) rotate(1deg) scale(0.99); }
-            50%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); }
-        }
-        
-        @keyframes borderGlow {
-            0%, 100% { 
-                border-color: #ff00ff;
-                box-shadow: 0 0 100px #ff00ff, 0 0 200px #00ffff;
-            }
-            50% { 
-                border-color: #00ffff;
-                box-shadow: 0 0 150px #00ffff, 0 0 300px #ff00ff;
-            }
-        }
-        
-        /* Meme Stickers */
-        .meme-sticker {
-            position: absolute;
-            font-size: 60px;
-            animation: memeSpin 3.3s ease-in-out infinite;
-            z-index: 200;
-            filter: drop-shadow(0 0 20px currentColor);
-        }
-        
-        .sticker-1 { top: 5%; left: 5%; animation-delay: 0s; }
-        .sticker-2 { top: 8%; right: 8%; animation-delay: 0.5s; }
-        .sticker-3 { bottom: 10%; left: 8%; animation-delay: 1s; }
-        .sticker-4 { bottom: 5%; right: 5%; animation-delay: 1.5s; }
-        .sticker-5 { top: 40%; left: 2%; animation-delay: 2s; }
-        .sticker-6 { top: 60%; right: 2%; animation-delay: 2.5s; }
-        
-        @keyframes memeSpin {
-            0%, 100% { transform: rotate(-15deg) scale(1); }
-            50% { transform: rotate(15deg) scale(1.1); }
-        }
-        
-        /* Deal With It Glasses Animation */
-        .deal-with-it {
-            position: absolute;
-            font-size: 80px;
-            animation: dropGlasses 2.2s ease-out infinite;
-            z-index: 250;
-            filter: drop-shadow(0 10px 10px rgba(0,0,0,0.5));
-        }
-        
-        .glasses-1 { top: 15%; left: 20%; animation-delay: 0s; }
-        .glasses-2 { top: 20%; right: 25%; animation-delay: 1s; }
-        
-        @keyframes dropGlasses {
-            0% { transform: translateY(-100px) rotate(0deg); opacity: 0; }
-            30% { opacity: 1; }
-            50% { transform: translateY(0) rotate(-5deg); }
-            70% { transform: translateY(0) rotate(5deg); }
-            100% { transform: translateY(0) rotate(0deg); opacity: 1; }
-        }
-        
-        /* Stonks Arrow */
-        .stonks {
-            position: absolute;
-            font-size: 70px;
-            animation: stonksRise 2.2s ease-in-out infinite;
-            z-index: 200;
-        }
-        
-        .stonks-1 { bottom: 25%; left: 15%; animation-delay: 0s; }
-        .stonks-2 { top: 30%; right: 15%; animation-delay: 1s; }
-        
-        @keyframes stonksRise {
-            0%, 100% { transform: translateY(0) scale(1); }
-            50% { transform: translateY(-30px) scale(1.2); }
-        }
-        
-        /* Much Wow Doge Style */
-        .doge-text {
-            position: absolute;
-            font-family: 'Comic Sans MS', cursive;
-            font-size: 24px;
-            color: #fff;
-            text-shadow: 2px 2px 0 #000;
-            animation: dogeFloat 4.4s ease-in-out infinite;
-            z-index: 150;
-        }
-        
-        .doge-1 { top: 25%; left: 10%; color: #ff00ff; animation-delay: 0s; }
-        .doge-2 { top: 70%; right: 10%; color: #00ffff; animation-delay: 1s; }
-        .doge-3 { bottom: 35%; left: 5%; color: #ffeb3b; animation-delay: 2s; }
-        .doge-4 { top: 50%; right: 5%; color: #00ff00; animation-delay: 3s; }
-        
-        @keyframes dogeFloat {
-            0%, 100% { transform: translate(0, 0) rotate(-5deg); }
-            50% { transform: translate(20px, -20px) rotate(5deg); }
-        }
-        
-        /* Dancing Characters */
-        .dancer {
-            position: absolute;
-            font-size: 100px;
-            animation: crazyDance 0.88s ease-in-out infinite;
-            filter: drop-shadow(0 0 30px rgba(255,0,255,0.8));
-            z-index: 100;
-        }
-        
-        .dancer-1 { 
-            bottom: 10px; 
-            left: 20px; 
-            animation-delay: 0s;
-        }
-        
-        .dancer-2 { 
-            bottom: 10px; 
-            right: 20px; 
-            animation-delay: 0.4s;
-            transform: scaleX(-1);
-        }
-        
-        @keyframes crazyDance {
-            0%, 100% { transform: translateY(0) rotate(-10deg) scale(1); }
-            25% { transform: translateY(-40px) rotate(10deg) scale(1.1); }
-            50% { transform: translateY(-20px) rotate(-20deg) scale(1.2); }
-            75% { transform: translateY(-50px) rotate(20deg) scale(1.1); }
-        }
-        
-        /* Extreme Floaters */
+        /* Gentle floating elements */
         .floater {
             position: absolute;
-            font-size: 55px;
-            animation: ultraFloat 2.2s ease-in-out infinite;
-            filter: drop-shadow(0 0 30px currentColor);
-            z-index: 50;
+            font-size: 45px;
+            animation: gentleFloat 8s ease-in-out infinite;
+            opacity: 0.8;
         }
         
-        .float-1 { top: 2%; left: 2%; color: #ff006e; animation-delay: 0s; }
-        .float-2 { top: 5%; right: 3%; color: #00ffff; animation-delay: 0.1s; }
-        .float-3 { top: 15%; left: 1%; color: #39ff14; animation-delay: 0.2s; }
-        .float-4 { top: 25%; right: 2%; color: #ffbe0b; animation-delay: 0.3s; }
-        .float-5 { top: 35%; left: 2%; color: #ff00ff; animation-delay: 0.4s; }
-        .float-6 { top: 45%; right: 1%; color: #00ff00; animation-delay: 0.5s; }
-        .float-7 { bottom: 35%; left: 1%; color: #ff6600; animation-delay: 0.6s; }
-        .float-8 { bottom: 25%; right: 2%; color: #ff1493; animation-delay: 0.7s; }
-        .float-9 { bottom: 15%; left: 3%; color: #00ced1; animation-delay: 0.8s; }
-        .float-10 { bottom: 5%; right: 4%; color: #ffd700; animation-delay: 0.9s; }
-        .float-11 { top: 8%; left: 12%; color: #ff4500; animation-delay: 1s; }
-        .float-12 { top: 18%; right: 10%; color: #1e90ff; animation-delay: 1.1s; }
-        .float-13 { bottom: 30%; left: 10%; color: #ff69b4; animation-delay: 1.2s; }
-        .float-14 { bottom: 20%; right: 8%; color: #00fa9a; animation-delay: 1.3s; }
-        .float-15 { top: 55%; left: 5%; color: #ff6347; animation-delay: 1.4s; }
-        .float-16 { top: 65%; right: 5%; color: #9400d3; animation-delay: 1.5s; }
-        .float-17 { bottom: 45%; left: 4%; color: #ff8c00; animation-delay: 1.6s; }
-        .float-18 { bottom: 10%; right: 12%; color: #00bfff; animation-delay: 1.7s; }
-        .float-19 { top: 40%; left: 8%; color: #ff1493; animation-delay: 1.8s; }
-        .float-20 { top: 75%; right: 10%; color: #7fff00; animation-delay: 1.9s; }
+        .float-1 { top: 8%; left: 8%; animation-delay: 0s; }
+        .float-2 { top: 12%; right: 10%; animation-delay: 2s; }
+        .float-3 { bottom: 15%; left: 10%; animation-delay: 4s; }
+        .float-4 { bottom: 12%; right: 8%; animation-delay: 6s; }
         
-        @keyframes ultraFloat {
-            0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); filter: drop-shadow(0 0 20px currentColor); }
-            20% { transform: translate(30px, -40px) rotate(20deg) scale(1.3); filter: drop-shadow(0 0 50px currentColor); }
-            40% { transform: translate(-20px, -60px) rotate(-15deg) scale(1.2); filter: drop-shadow(0 0 70px currentColor); }
-            60% { transform: translate(-40px, -30px) rotate(25deg) scale(1.4); filter: drop-shadow(0 0 50px currentColor); }
-            80% { transform: translate(10px, -50px) rotate(-10deg) scale(1.25); filter: drop-shadow(0 0 60px currentColor); }
+        @keyframes gentleFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(5deg); }
         }
         
-        /* Cables */
-        .cable-line {
+        /* Sparkles */
+        .sparkle {
             position: absolute;
-            font-size: 40px;
-            animation: cablePulse 0.55s ease-in-out infinite;
+            font-size: 25px;
+            animation: sparkle 4s ease-in-out infinite;
         }
         
-        .cable-1 { top: 3%; left: 20%; animation-delay: 0s; }
-        .cable-2 { top: 8%; right: 18%; animation-delay: 0.1s; }
-        .cable-3 { bottom: 5%; left: 18%; animation-delay: 0.2s; }
-        .cable-4 { bottom: 8%; right: 20%; animation-delay: 0.3s; }
-        .cable-5 { top: 30%; left: 3%; animation-delay: 0.4s; }
-        .cable-6 { top: 50%; right: 2%; animation-delay: 0.5s; }
-        .cable-7 { bottom: 40%; left: 2%; animation-delay: 0.6s; }
-        .cable-8 { bottom: 25%; right: 3%; animation-delay: 0.7s; }
-        .cable-9 { top: 60%; left: 6%; animation-delay: 0.8s; }
-        .cable-10 { top: 20%; right: 6%; animation-delay: 0.9s; }
-        .cable-11 { bottom: 55%; left: 6%; animation-delay: 1s; }
-        .cable-12 { bottom: 35%; right: 6%; animation-delay: 1.1s; }
+        .sparkle:nth-child(5) { top: 20%; left: 20%; animation-delay: 0s; }
+        .sparkle:nth-child(6) { top: 25%; right: 25%; animation-delay: 1s; }
+        .sparkle:nth-child(7) { bottom: 25%; left: 25%; animation-delay: 2s; }
+        .sparkle:nth-child(8) { bottom: 20%; right: 20%; animation-delay: 3s; }
         
-        @keyframes cablePulse {
-            0%, 100% { opacity: 1; transform: scale(1) rotate(-5deg); }
-            50% { opacity: 0.6; transform: scale(1.2) rotate(5deg); }
+        @keyframes sparkle {
+            0%, 100% { opacity: 0.4; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.2); }
         }
         
         /* Title */
         .title-container {
-            position: relative;
-            z-index: 100;
             text-align: center;
-            margin-bottom: 5px;
+            margin-bottom: 15px;
+            z-index: 10;
         }
         
-        .mega-title {
-            font-family: 'Bungee Shade', cursive;
+        .title {
+            font-family: 'Pacifico', cursive;
             font-size: 70px;
-            background: linear-gradient(90deg, #ff006e, #8338ec, #3a86ff, #06ffa5, #ffbe0b, #fb5607, #ff006e, #8338ec);
-            background-size: 400% 100%;
+            background: linear-gradient(45deg, #667eea, #764ba2, #f093fb, #ff6b6b, #feca57);
+            background-size: 300% 300%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            animation: megaGlitch 1.1s ease-in-out infinite, megaGradient 2.2s linear infinite;
-            text-shadow: 5px 5px 0 rgba(0,0,0,0.7);
-            letter-spacing: 8px;
-            filter: drop-shadow(0 0 50px rgba(255,0,110,1));
+            margin-bottom: 10px;
+            filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.2));
+            animation: titleGlow 3s ease-in-out infinite;
         }
         
-        @keyframes megaGlitch {
-            0%, 100% { transform: translate(0) skew(0deg) scale(1); }
-            10% { transform: translate(-5px, 5px) skew(3deg) scale(1.05); }
-            20% { transform: translate(5px, -5px) skew(-3deg) scale(0.95); }
-            30% { transform: translate(-5px, -5px) skew(2deg) scale(1.05); }
-            40% { transform: translate(5px, 5px) skew(-2deg) scale(0.95); }
-            50%, 100% { transform: translate(0) skew(0deg) scale(1); }
-        }
-        
-        @keyframes megaGradient {
-            0% { background-position: 0% 50%; }
-            100% { background-position: 400% 50%; }
+        @keyframes titleGlow {
+            0%, 100% { filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.2)); background-position: 0% 50%; }
+            50% { filter: drop-shadow(5px 5px 15px rgba(255,107,107,0.5)); background-position: 100% 50%; }
         }
         
         .best-mama {
-            font-family: 'Fredoka One', cursive;
-            font-size: 30px;
-            color: #ffd700;
-            text-shadow: 
-                0 0 20px #ffd700,
-                0 0 40px #ff006e,
-                0 0 60px #ffd700;
-            margin-top: 5px;
-            animation: mamaPulse 1.1s ease-in-out infinite;
-        }
-        
-        @keyframes mamaPulse {
-            0%, 100% { transform: scale(1); text-shadow: 0 0 20px #ffd700; }
-            50% { transform: scale(1.1); text-shadow: 0 0 40px #ffd700, 0 0 80px #ff006e; }
-        }
-        
-        .subtitle {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 20px;
-            color: #00ffff;
-            text-shadow: 0 0 30px #00ffff, 0 0 60px #00ffff;
-            animation: subtitleStrobe 0.88s ease-in-out infinite;
-            margin-top: 10px;
-        }
-        
-        @keyframes subtitleStrobe {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-        
-        /* Names Banner */
-        .names-banner {
-            background: linear-gradient(90deg, #ff006e, #8338ec, #3a86ff, #06ffa5, #ffbe0b, #fb5607, #ff006e);
-            background-size: 600% 600%;
-            color: white;
-            font-family: 'Black Ops One', cursive;
+            font-family: 'Comfortaa', cursive;
             font-size: 24px;
-            padding: 18px 45px;
-            border-radius: 60px;
-            margin: 12px 0;
-            box-shadow: 
-                0 0 50px rgba(255,0,110,1),
-                0 0 100px rgba(131,56,236,0.8),
-                0 0 150px rgba(58,134,255,0.6),
-                inset 0 0 30px rgba(255,255,255,0.4);
-            animation: namesPulse 1.1s ease-in-out infinite, namesGradient 3s ease infinite;
-            z-index: 100;
-            position: relative;
+            color: #764ba2;
+            font-weight: 700;
+        }
+        
+        /* Names */
+        .names-section {
+            background: linear-gradient(135deg, #ffeaa7, #fab1a0);
+            border-radius: 25px;
+            padding: 18px 40px;
+            margin: 15px 0;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
             text-align: center;
-            border: 5px solid white;
-            text-shadow: 2px 2px 0 #000;
+            z-index: 10;
         }
         
-        @keyframes namesPulse {
-            0%, 100% { transform: scale(1) rotate(-1deg); box-shadow: 0 0 50px rgba(255,0,110,1); }
-            50% { transform: scale(1.08) rotate(1deg); box-shadow: 0 0 80px rgba(255,0,110,1), 0 0 120px rgba(131,56,236,1); }
+        .names-text {
+            font-family: 'Fredoka One', cursive;
+            font-size: 22px;
+            color: #2d3436;
+            margin-bottom: 5px;
         }
         
-        @keyframes namesGradient {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+        .names-sub {
+            font-family: 'Patrick Hand', cursive;
+            font-size: 18px;
+            color: #636e72;
         }
         
-        /* Certified Badge */
-        .certified-badge {
-            background: #000;
-            border: 5px solid #ffd700;
-            border-radius: 50%;
-            width: 100px;
-            height: 100px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Black Ops One', cursive;
-            font-size: 14px;
-            color: #ffd700;
+        /* Fun Quote */
+        .fun-quote {
+            background: rgba(118, 75, 162, 0.1);
+            border-left: 4px solid #764ba2;
+            border-radius: 0 15px 15px 0;
+            padding: 12px 25px;
+            margin: 15px 0;
+            font-family: 'Patrick Hand', cursive;
+            font-size: 20px;
+            color: #2d3436;
+            font-style: italic;
+            z-index: 10;
+            max-width: 80%;
             text-align: center;
-            box-shadow: 0 0 40px #ffd700;
-            animation: certifiedSpin 3.3s ease-in-out infinite;
-            z-index: 100;
-            position: relative;
-            margin: 10px 0;
-        }
-        
-        @keyframes certifiedSpin {
-            0%, 100% { transform: rotate(-10deg) scale(1); }
-            50% { transform: rotate(10deg) scale(1.1); }
-        }
-        
-        /* Speaker Setup */
-        .setup-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            margin: 12px 0;
-            z-index: 100;
-            position: relative;
-        }
-        
-        .lan-box {
-            background: #000;
-            border: 4px solid #00ff00;
-            border-radius: 10px;
-            padding: 12px 20px;
-            font-family: 'Press Start 2P', cursive;
-            font-size: 14px;
-            color: #00ff00;
-            box-shadow: 0 0 30px #00ff00, inset 0 0 20px rgba(0,255,0,0.3);
-            animation: lanBlink 0.44.4s ease-in-out infinite;
-            text-align: center;
-        }
-        
-        .lan-box span {
-            display: block;
-            font-size: 8px;
-            margin-top: 5px;
-            color: #00aa00;
-        }
-        
-        @keyframes lanBlink {
-            0%, 100% { box-shadow: 0 0 30px #00ff00; }
-            50% { box-shadow: 0 0 60px #00ff00, 0 0 90px #00ff00; }
-        }
-        
-        .wire-section {
-            display: flex;
-            align-items: center;
-            gap: 3px;
-            font-size: 30px;
-        }
-        
-        .wire-anim {
-            animation: wireFlow 0.66.6s ease-in-out infinite;
-        }
-        
-        @keyframes wireFlow {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-        
-        .speaker-mega {
-            font-size: 75px;
-            animation: speakerBoom 0.44.4s ease-in-out infinite;
-            filter: drop-shadow(0 0 40px #ff006e);
-        }
-        
-        @keyframes speakerBoom {
-            0%, 100% { transform: scale(1) rotate(-8deg); }
-            25% { transform: scale(1.3) rotate(8deg); }
-            50% { transform: scale(1.4) rotate(-8deg); }
-            75% { transform: scale(1.2) rotate(8deg); }
-        }
-        
-        .power-indicator {
-            font-size: 25px;
-            animation: powerFlash 0.33s ease-in-out infinite;
-        }
-        
-        @keyframes powerFlash {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.3; transform: scale(1.3); }
-        }
-        
-        /* Service Badge */
-        .service-badge {
-            background: linear-gradient(135deg, #ff006e, #ff00ff);
-            color: white;
-            font-family: 'Black Ops One', cursive;
-            font-size: 16px;
-            padding: 10px 30px;
-            border-radius: 30px;
-            margin: 8px 0;
-            box-shadow: 0 0 40px rgba(255,0,110,0.8);
-            animation: servicePulse 1.1s ease-in-out infinite;
-            z-index: 100;
-            position: relative;
-            border: 3px solid white;
-            text-align: center;
-        }
-        
-        @keyframes servicePulse {
-            0%, 100% { transform: scale(1); box-shadow: 0 0 40px rgba(255,0,110,0.8); }
-            50% { transform: scale(1.05); box-shadow: 0 0 60px rgba(255,0,110,1), 0 0 90px rgba(255,0,255,0.8); }
         }
         
         /* Gift Box */
         .gift-box {
-            background: linear-gradient(135deg, #ff006e, #8338ec, #3a86ff, #06ffa5);
-            background-size: 400% 400%;
-            border: 8px solid #fff;
-            border-radius: 30px;
-            padding: 20px 50px;
-            margin: 12px 0;
-            box-shadow: 
-                0 0 60px rgba(255,0,110,1),
-                0 0 120px rgba(131,56,236,0.8),
-                0 0 180px rgba(58,134,255,0.6),
-                inset 0 0 60px rgba(255,255,255,0.3);
-            position: relative;
-            z-index: 100;
-            animation: giftMega 0.88s ease-in-out infinite, giftRainbow 2s ease infinite;
+            background: linear-gradient(145deg, #fff, #ffeaa7);
+            border: 4px solid;
+            border-image: linear-gradient(45deg, #ff6b6b, #feca57, #48dbfb, #ff6b6b) 1;
+            border-radius: 20px;
+            padding: 25px 50px;
+            margin: 15px 0;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15), 0 0 30px rgba(255,107,107,0.3);
             text-align: center;
+            z-index: 10;
+            position: relative;
+            animation: glow 2s ease-in-out infinite;
         }
         
-        @keyframes giftMega {
-            0%, 100% { transform: rotate(-3deg) scale(1); }
-            25% { transform: rotate(3deg) scale(1.1); }
-            50% { transform: rotate(-3deg) scale(1.15); }
-            75% { transform: rotate(3deg) scale(1.1); }
+        .gift-box::before {
+            content: '🎀';
+            position: absolute;
+            top: -35px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 45px;
+            animation: bounce 1.5s ease-in-out infinite;
         }
         
-        @keyframes giftRainbow {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+        .gift-box::after {
+            content: '✨';
+            position: absolute;
+            top: -20px;
+            right: 20px;
+            font-size: 25px;
+            animation: sparkle 1s ease-in-out infinite;
         }
         
         .gift-title {
-            font-family: 'Black Ops One', cursive;
-            font-size: 38px;
-            color: #fff;
-            text-shadow: 4px 4px 0 #000, 0 0 30px #fff;
+            font-family: 'Fredoka One', cursive;
+            font-size: 32px;
+            color: #2d3436;
             margin-bottom: 8px;
         }
         
         .gift-subtitle {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 22px;
-            color: #00ffff;
-            text-shadow: 0 0 30px #00ffff;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 18px;
+            color: #00b894;
+            font-weight: 600;
         }
         
-        /* Tech Tags */
-        .tech-container {
+        .gift-extra {
+            font-family: 'Patrick Hand', cursive;
+            font-size: 16px;
+            color: #636e72;
+            margin-top: 8px;
+        }
+        
+        /* Speaker Visual */
+        .speaker-section {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            margin: 15px 0;
+            z-index: 10;
+            background: linear-gradient(135deg, rgba(118,75,162,0.1), rgba(255,107,107,0.1));
+            padding: 20px 40px;
+            border-radius: 30px;
+            border: 3px dashed rgba(118,75,162,0.3);
+        }
+        
+        .speaker-pair {
+            font-size: 65px;
+            animation: speakerBounce 1s ease-in-out infinite;
+            filter: drop-shadow(3px 3px 0 rgba(0,0,0,0.1));
+        }
+        
+        @keyframes speakerBounce {
+            0%, 100% { transform: scale(1) rotate(-5deg); }
+            50% { transform: scale(1.1) rotate(5deg); }
+        }
+        
+        .wire-simple {
+            font-size: 30px;
+            color: #666;
+            animation: wirePulse 0.5s ease-in-out infinite;
+        }
+        
+        @keyframes wirePulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+        
+        @keyframes gentlePulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        @keyframes foodBounce {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-8px) rotate(3deg); }
+        }
+        
+        @keyframes cakeWiggle {
+            0%, 100% { transform: rotate(-5deg); }
+            50% { transform: rotate(5deg); }
+        }
+        
+        @keyframes skewerShake {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-10deg); }
+            75% { transform: rotate(10deg); }
+        }
+        
+        @keyframes partyGradient {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 5px 15px rgba(0,0,0,0.2), 0 0 20px rgba(231,76,60,0.4); }
+            50% { box-shadow: 0 5px 15px rgba(0,0,0,0.2), 0 0 40px rgba(231,76,60,0.8); }
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @keyframes partyPop {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        @keyframes disco {
+            0% { filter: hue-rotate(0deg); }
+            100% { filter: hue-rotate(360deg); }
+        }
+        
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-3px); }
+            20%, 40%, 60%, 80% { transform: translateX(3px); }
+        }
+        
+        @keyframes floatUp {
+            0% { transform: translateY(100%) scale(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100%) scale(1); opacity: 0; }
+        }
+        
+        .wire-simple {
+            font-size: 25px;
+            color: #888;
+        }
+        
+        /* Service Note */
+        .service-note {
+            background: rgba(0, 184, 148, 0.1);
+            border: 2px dashed #00b894;
+            border-radius: 15px;
+            padding: 12px 25px;
+            margin: 12px 0;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 16px;
+            color: #2d3436;
+            text-align: center;
+            z-index: 10;
+        }
+        
+        /* Info Tags */
+        .info-container {
             display: flex;
             gap: 12px;
             margin: 12px 0;
-            z-index: 100;
-            position: relative;
+            z-index: 10;
             flex-wrap: wrap;
             justify-content: center;
         }
         
-        .tech-tag {
-            background: rgba(0,0,0,0.9);
-            border: 4px solid;
-            border-radius: 20px;
-            padding: 12px 25px;
-            font-family: 'Press Start 2P', cursive;
-            font-size: 10px;
-            animation: tagStrobe 0.77s ease-in-out infinite;
+        .info-tag {
+            background: white;
+            border: 2px solid;
+            border-radius: 15px;
+            padding: 8px 18px;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            box-shadow: 2px 2px 0 rgba(0,0,0,0.05);
         }
         
-        .tech-tag:nth-child(1) { border-color: #ff006e; color: #ff006e; animation-delay: 0s; }
-        .tech-tag:nth-child(2) { border-color: #00ffff; color: #00ffff; animation-delay: 0.15s; }
-        .tech-tag:nth-child(3) { border-color: #39ff14; color: #39ff14; animation-delay: 0.3s; }
-        .tech-tag:nth-child(4) { border-color: #ffbe0b; color: #ffbe0b; animation-delay: 0.45s; }
-        .tech-tag:nth-child(5) { border-color: #ff00ff; color: #ff00ff; animation-delay: 0.6s; }
+        .info-tag:nth-child(1) { border-color: #ff6b6b; color: #ff6b6b; }
+        .info-tag:nth-child(2) { border-color: #48dbfb; color: #48dbfb; }
+        .info-tag:nth-child(3) { border-color: #1dd1a1; color: #1dd1a1; }
+        .info-tag:nth-child(4) { border-color: #feca57; color: #feca57; }
         
-        @keyframes tagStrobe {
-            0%, 100% { box-shadow: 0 0 15px currentColor; transform: scale(1); }
-            50% { box-shadow: 0 0 40px currentColor, 0 0 70px currentColor; transform: scale(1.05); }
+        /* Extra Fun */
+        .extra-fun {
+            font-family: 'Patrick Hand', cursive;
+            font-size: 18px;
+            color: #764ba2;
+            text-align: center;
+            margin: 10px 0;
+            z-index: 10;
         }
         
         /* Footer */
         .footer {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 22px;
-            color: #ff00ff;
+            font-family: 'Pacifico', cursive;
+            font-size: 24px;
+            color: #764ba2;
             text-align: center;
-            text-shadow: 0 0 30px #ff00ff, 0 0 60px #ff00ff;
-            animation: footerMega 0.77s ease-in-out infinite;
-            z-index: 100;
-            position: relative;
-            margin-top: 12px;
-        }
-        
-        @keyframes footerMega {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.7; transform: scale(1.05); }
-        }
-        
-        /* Lasers */
-        .laser-beam {
-            position: absolute;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, transparent, #ff006e, #00ffff, #ff006e, transparent);
-            animation: laserBlast 1.5s ease-out infinite;
-            z-index: 5;
-        }
-        
-        .laser-1 { top: 15%; animation-delay: 0s; }
-        .laser-2 { top: 30%; animation-delay: 0.3s; }
-        .laser-3 { top: 45%; animation-delay: 0.6s; }
-        .laser-4 { top: 60%; animation-delay: 0.9s; }
-        .laser-5 { top: 75%; animation-delay: 1.2s; }
-        .laser-6 { top: 90%; animation-delay: 1.5s; }
-        
-        @keyframes laserBlast {
-            0% { transform: translateX(-150%) scaleX(0.5); opacity: 0; }
-            50% { opacity: 1; }
-            100% { transform: translateX(150%) scaleX(2); opacity: 0; }
-        }
-        
-        /* Lightning */
-        .bolt {
-            position: absolute;
-            font-size: 70px;
-            animation: lightningStorm 0.88s ease-in-out infinite;
-            z-index: 20;
-        }
-        
-        .bolt-1 { top: 2%; left: 25%; animation-delay: 0s; }
-        .bolt-2 { bottom: 5%; right: 20%; animation-delay: 0.2s; }
-        .bolt-3 { top: 60%; left: 15%; animation-delay: 0.4s; }
-        .bolt-4 { top: 35%; right: 15%; animation-delay: 0.6s; }
-        .bolt-5 { bottom: 30%; left: 25%; animation-delay: 0.8s; }
-        
-        @keyframes lightningStorm {
-            0%, 100% { opacity: 0.2; transform: scale(1); filter: drop-shadow(0 0 10px #ffff00); }
-            50% { opacity: 1; transform: scale(1.4); filter: drop-shadow(0 0 40px #ffff00); }
+            margin-top: 10px;
+            z-index: 10;
         }
         
         @media print {
             body { 
-                background: #0a0a1a;
-                animation: none;
+                background: linear-gradient(135deg, #667eea, #764ba2);
             }
             .voucher { 
-                animation: none;
-                box-shadow: 0 0 50px rgba(0,0,0,0.8);
+                box-shadow: 0 10px 40px rgba(0,0,0,0.1);
             }
-            .dancer, .meme-sticker, .deal-with-it { animation: none; }
         }
     </style>
 </head>
 <body>
     <div class="voucher">
-        <!-- Meme Stickers -->
-        <div class="meme-sticker sticker-1">💯</div>
-        <div class="meme-sticker sticker-2">🔥</div>
-        <div class="meme-sticker sticker-3">⚡</div>
-        <div class="meme-sticker sticker-4">🚀</div>
-        <div class="meme-sticker sticker-5">💎</div>
-        <div class="meme-sticker sticker-6">👑</div>
-        
-        <!-- Deal With It Glasses -->
-        <div class="deal-with-it glasses-1">🕶️</div>
-        <div class="deal-with-it glasses-2">🕶️</div>
-        
-        <!-- Stonks -->
-        <div class="stonks stonks-1">📈</div>
-        <div class="stonks stonks-2">📈</div>
-        
-        <!-- Doge Text -->
-        <div class="doge-text doge-1">MUCH WOW!</div>
-        <div class="doge-text doge-2">VERY SPEAKER!</div>
-        <div class="doge-text doge-3">SUCH BASS!</div>
-        <div class="doge-text doge-4">AMAZING MOM!</div>
-        
-        <!-- Lasers -->
-        <div class="laser-beam laser-1"></div>
-        <div class="laser-beam laser-2"></div>
-        <div class="laser-beam laser-3"></div>
-        <div class="laser-beam laser-4"></div>
-        <div class="laser-beam laser-5"></div>
-        <div class="laser-beam laser-6"></div>
-        
-        <!-- Lightning -->
-        <div class="bolt bolt-1">⚡</div>
-        <div class="bolt bolt-2">⚡</div>
-        <div class="bolt bolt-3">⚡</div>
-        <div class="bolt bolt-4">⚡</div>
-        <div class="bolt bolt-5">⚡</div>
-        
-        <!-- Cables -->
-        <div class="cable-line cable-1">🔌</div>
-        <div class="cable-line cable-2">📡</div>
-        <div class="cable-line cable-3">🔌</div>
-        <div class="cable-line cable-4">📡</div>
-        <div class="cable-line cable-5">🔌</div>
-        <div class="cable-line cable-6">📡</div>
-        <div class="cable-line cable-7">🔌</div>
-        <div class="cable-line cable-8">📡</div>
-        <div class="cable-line cable-9">🔌</div>
-        <div class="cable-line cable-10">📡</div>
-        <div class="cable-line cable-11">🔌</div>
-        <div class="cable-line cable-12">📡</div>
-        
         <!-- Floaters -->
-        <div class="floater float-1">🚀</div>
-        <div class="floater float-2">💎</div>
-        <div class="floater float-3">🏆</div>
-        <div class="floater float-4">🎯</div>
-        <div class="floater float-5">🎪</div>
-        <div class="floater float-6">💥</div>
-        <div class="floater float-7">🔥</div>
-        <div class="floater float-8">🌟</div>
-        <div class="floater float-9">✨</div>
-        <div class="floater float-10">🎊</div>
-        <div class="floater float-11">🎉</div>
-        <div class="floater float-12">💫</div>
-        <div class="floater float-13">🎭</div>
-        <div class="floater float-14">🎨</div>
-        <div class="floater float-15">🎰</div>
-        <div class="floater float-16">🎲</div>
-        <div class="floater float-17">🎸</div>
-        <div class="floater float-18">🎺</div>
-        <div class="floater float-19">🎻</div>
-        <div class="floater float-20">🎤</div>
+        <div class="floater float-1">🎈</div>
+        <div class="floater float-2">✨</div>
+        <div class="floater float-3">🌸</div>
+        <div class="floater float-4">💝</div>
+        <div class="floater" style="top: 5%; left: 45%; animation-delay: 1s; animation: gentleFloat 6s ease-in-out infinite, spin 8s linear infinite;">🎵</div>
+        <div class="floater" style="top: 85%; left: 50%; animation-delay: 3s; animation: gentleFloat 7s ease-in-out infinite, spin 10s linear infinite reverse;">🎶</div>
+        <div class="floater" style="top: 50%; left: 3%; animation-delay: 2s; animation: gentleFloat 9s ease-in-out infinite;">🎊</div>
+        <div class="floater" style="top: 50%; right: 3%; animation-delay: 4s; animation: gentleFloat 8s ease-in-out infinite;">🎉</div>
         
-        <!-- Dancing Characters -->
-        <div class="dancer dancer-1">🕺</div>
-        <div class="dancer dancer-2">💃</div>
+        <!-- Sparkles -->
+        <div class="sparkle">⭐</div>
+        <div class="sparkle">✨</div>
+        <div class="sparkle">⭐</div>
+        <div class="sparkle">✨</div>
+        <div class="sparkle" style="top: 8%; left: 35%; animation-delay: 0.5s; font-size: 20px;">🌟</div>
+        <div class="sparkle" style="top: 75%; right: 35%; animation-delay: 1.5s; font-size: 22px;">✨</div>
+        <div class="sparkle" style="top: 30%; left: 8%; animation-delay: 2.5s; font-size: 18px;">💫</div>
+        <div class="sparkle" style="top: 60%; right: 8%; animation-delay: 3.5s; font-size: 20px;">🌟</div>
+        
+        <!-- Party Particles -->
+        <div style="position: absolute; top: 90%; left: 15%; font-size: 30px; animation: floatUp 4s ease-out infinite; opacity: 0;">🎈</div>
+        <div style="position: absolute; top: 90%; left: 35%; font-size: 25px; animation: floatUp 3.5s ease-out infinite 0.5s; opacity: 0;">🎉</div>
+        <div style="position: absolute; top: 90%; left: 55%; font-size: 28px; animation: floatUp 4.5s ease-out infinite 1s; opacity: 0;">✨</div>
+        <div style="position: absolute; top: 90%; left: 75%; font-size: 26px; animation: floatUp 3.8s ease-out infinite 1.5s; opacity: 0;">🎊</div>
+        <div style="position: absolute; top: 90%; left: 25%; font-size: 22px; animation: floatUp 4.2s ease-out infinite 2s; opacity: 0;">💝</div>
+        <div style="position: absolute; top: 90%; left: 65%; font-size: 24px; animation: floatUp 3.6s ease-out infinite 2.5s; opacity: 0;">🎵</div>
         
         <!-- Main Content -->
-        <div class="title-container">
-            <div class="mega-title">GUTSCHEIN</div>
-            <div class="best-mama">🏆 GOAT MAMA = BESTE MAMA! 🏆</div>
-            <div class="subtitle">>> NO CAP - LEGENDARY BIRTHDAY! <<</div>
+        <div class="title-container" style="margin-top: 10px;">
+            <div class="title">Gutschein</div>
+            <div class="best-mama" style="font-size: 22px; margin-top: 5px;">Für die beste Mama der Welt! 💕</div>
         </div>
         
-        <!-- Names Banner -->
-        <div class="names-banner">
-            🎂 Marion • Christian • Ingrid • Rene 🎂<br>
-            <span style="font-size: 18px;">SHEEEEESH! WIR WÜNSCHEN DIR DAS BESTE!</span>
+        <!-- Names with wishes -->
+        <div class="names-section" style="margin: 10px 0; position: relative;">
+            <div style="display: flex; justify-content: center; align-items: center; gap: 10px; margin-bottom: 5px;">
+                <span style="font-size: 25px;">⭐</span>
+                <span class="names-text" style="display: inline;">Marion • Christian • Ingrid • Rene</span>
+                <span style="font-size: 25px;">🌟</span>
+            </div>
+            <div class="names-sub" style="font-size: 20px; font-weight: bold; color: #764ba2; margin-top: 5px;">wünschen dir einen wunderbaren Geburtstag! 🎉🎂🎁</div>
         </div>
         
-        <!-- Certified Badge -->
-        <div class="certified-badge">
-            CERTIFIED<br>FRESH
+        <!-- Fun Quote -->
+        <div class="fun-quote" style="background: linear-gradient(135deg, rgba(255,107,107,0.15), rgba(238,90,36,0.15)); border-left: 5px solid #ff6b6b; border-right: 5px solid #ee5a24;">
+            🔊 "Laut genug dass selbst die Bienen zum Beat tanzen!" 🐝🕺
         </div>
         
-        <!-- Service Badge -->
-        <div class="service-badge">
-            🔧 WE INSTALL - YOU ENJOY! 🔧<br>
-            <span style="font-size: 12px;">Professional Verkabelung inklusive!</span>
-        </div>
-        
-        <!-- Speaker Setup -->
-        <div class="setup-container">
-            <div class="lan-box">
-                LAN-A
-                <span>100% CONNECTED</span>
-            </div>
-            <div class="wire-section">
-                <span class="wire-anim" style="color: #ff6600;">══</span>
-                <span style="color: #888;">⚡</span>
-                <span class="wire-anim" style="color: #ff6600;">══</span>
-                <span style="color: #00ff00;">🔌</span>
-            </div>
-            <div class="speaker-mega">🔊</div>
-            <div class="power-indicator">⚡</div>
-            <div class="speaker-mega">🔊</div>
-            <div class="wire-section">
-                <span style="color: #00ff00;">🔌</span>
-                <span class="wire-anim" style="color: #ff6600;">══</span>
-                <span style="color: #888;">⚡</span>
-                <span class="wire-anim" style="color: #ff6600;">══</span>
-            </div>
-            <div class="lan-box">
-                LAN-B
-                <span>NO LAG!</span>
-            </div>
+        <!-- Speaker Visual -->
+        <div class="speaker-section">
+            <div class="speaker-pair">🔊</div>
+            <div class="wire-simple">~~~🔌~~~</div>
+            <div class="speaker-pair">🔊</div>
         </div>
         
         <!-- Gift Box -->
         <div class="gift-box">
-            <div class="gift-title">⚡ 2 x LAUTSPRECHER ⚡</div>
-            <div class="gift-subtitle">Für Angela's EPIC Gartenhütte! BASED! 🏡🔊🎵</div>
+            <div class="gift-title">🎁 2 x LAUTSPRECHER 🎁</div>
+            <div class="gift-subtitle">für deine gemütliche Gartenhütte</div>
+            <div class="gift-extra">(inklusive Verkabelung & Anschluss-Hilfe!)</div>
         </div>
         
-        <!-- Tech Tags -->
-        <div class="tech-container">
-            <div class="tech-tag">✓ HIGH-TIER</div>
-            <div class="tech-tag">✓ GIGABIT</div>
-            <div class="tech-tag">✓ PRO SETUP</div>
-            <div class="tech-tag">✓ SUS-PROOF</div>
-            <div class="tech-tag">✓ POG!</div>
+        <!-- Party Food Bonus -->
+        <div class="party-banner" style="background: linear-gradient(90deg, #ff6b6b, #feca57, #48dbfb, #ff6b6b); background-size: 300% 100%; animation: partyGradient 3s linear infinite; padding: 5px 30px; border-radius: 50px; margin: 15px 0; z-index: 10; box-shadow: 0 5px 20px rgba(0,0,0,0.2);">
+            <span style="font-family: 'Fredoka One', cursive; font-size: 22px; color: #fff; text-shadow: 2px 2px 0 rgba(0,0,0,0.3);">🎉 ESSEN & FEIERN 🎉</span>
+        </div>
+        
+        <div class="food-section" style="display: flex; gap: 25px; margin: 15px 0; z-index: 10;">
+            <div class="food-item" style="background: linear-gradient(145deg, #ff6b6b, #ee5a52); border-radius: 25px; padding: 20px 30px; box-shadow: 0 10px 30px rgba(255,107,107,0.5), inset 0 0 20px rgba(255,255,255,0.3); text-align: center; border: 4px solid #fff; animation: foodBounce 2s ease-in-out infinite; position: relative; overflow: hidden;">
+                <div style="position: absolute; top: -10px; right: -10px; font-size: 25px; animation: sparkle 1s ease-in-out infinite;">✨</div>
+                <div style="font-size: 45px; margin-bottom: 5px; animation: cakeWiggle 1.5s ease-in-out infinite; filter: drop-shadow(2px 2px 0 rgba(0,0,0,0.2));">🎂</div>
+                <div style="font-family: 'Fredoka One', cursive; font-size: 22px; color: #fff; text-shadow: 2px 2px 0 rgba(0,0,0,0.3);">KUCHEN</div>
+                <div style="font-family: 'Pacifico', cursive; font-size: 16px; color: #ffeaa7; margin-top: 5px;">Süchtig machend! 🍰</div>
+            </div>
+            <div class="food-item" style="background: linear-gradient(145deg, #f39c12, #e67e22); border-radius: 25px; padding: 20px 30px; box-shadow: 0 10px 30px rgba(243,156,18,0.5), inset 0 0 20px rgba(255,255,255,0.3); text-align: center; border: 4px solid #fff; animation: foodBounce 2s ease-in-out infinite 0.3s; position: relative; overflow: hidden;">
+                <div style="position: absolute; top: -10px; left: -10px; font-size: 25px; animation: sparkle 1s ease-in-out infinite 0.5s;">🔥</div>
+                <div style="font-size: 45px; margin-bottom: 5px; animation: skewerShake 0.8s ease-in-out infinite; filter: drop-shadow(2px 2px 0 rgba(0,0,0,0.2));">🍖</div>
+                <div style="font-family: 'Fredoka One', cursive; font-size: 22px; color: #fff; text-shadow: 2px 2px 0 rgba(0,0,0,0.3);">SPIESSE</div>
+                <div style="font-family: 'Pacifico', cursive; font-size: 16px; color: #ffeaa7; margin-top: 5px;">Grill-Master Style! 🍢</div>
+            </div>
+        </div>
+        
+        <div style="display: flex; align-items: center; gap: 20px; margin: 10px 0; z-index: 10; background: linear-gradient(90deg, #ff6b6b, #feca57, #48dbfb, #ff6b6b); background-size: 300% 100%; animation: partyGradient 2s linear infinite; padding: 12px 35px; border-radius: 50px; box-shadow: 0 10px 30px rgba(0,0,0,0.3), inset 0 0 20px rgba(255,255,255,0.3); border: 3px solid #fff;">
+            <div style="font-size: 35px; animation: spin 2s linear infinite;">🎂</div>
+            <div style="font-family: 'Fredoka One', cursive; font-size: 22px; color: #fff; text-shadow: 3px 3px 0 rgba(0,0,0,0.3); animation: partyPop 1s ease-in-out infinite;">Lass uns feiern!</div>
+            <div style="font-size: 35px; animation: spin 2s linear infinite reverse;">🎉</div>
+        </div>
+        
+        <div style="display: flex; gap: 15px; margin: 10px 0; z-index: 10;">
+            <div style="font-size: 30px; animation: bounce 0.6s ease-in-out infinite;">🥳</div>
+            <div style="font-size: 30px; animation: bounce 0.6s ease-in-out infinite 0.1s;">🎂</div>
+            <div style="font-size: 30px; animation: bounce 0.6s ease-in-out infinite 0.2s;">🍖</div>
+            <div style="font-size: 30px; animation: bounce 0.6s ease-in-out infinite 0.3s;">🔊</div>
+            <div style="font-size: 30px; animation: bounce 0.6s ease-in-out infinite 0.4s;">🎵</div>
+            <div style="font-size: 30px; animation: bounce 0.6s ease-in-out infinite 0.5s;">💃</div>
+        </div>
+        
+        <!-- Service Note -->
+        <div class="service-note">
+            ✨ Wir machen alles startklar - du musst nur noch die Musik einschalten! ✨
+        </div>
+        
+        <!-- Info Tags -->
+        <div class="info-container">
+            <div class="info-tag">✓ Kein WLAN nötig</div>
+            <div class="info-tag">✓ Einfach anstöpseln</div>
+            <div class="info-tag">✓ Gültig bis Einlösung</div>
+            <div class="info-tag">✓ Mama-approved!</div>
+        </div>
+        
+        <!-- Extra Fun -->
+        <div class="extra-fun">
+            PS: Wenn die Musik zu laut ist, bist du zu alt! (Spaß - du bist die coolste! 😉)
         </div>
         
         <!-- Footer -->
         <div class="footer">
-            🎵 ABROCKEN IN DER GARTENHÜTTE! 🎵<br>
-            <span style="font-size: 18px; color: #00ffff;">🔊 MAXIMUM VOLUME! LET'S GO! 🔊</span>
+            Viel Freude mit der Musik in deiner Gartenhütte! 🎵🌸
         </div>
     </div>
 </body>
